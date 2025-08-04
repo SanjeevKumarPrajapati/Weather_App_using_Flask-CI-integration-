@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+</head>
+<body>
+    <h1>🌦️ Flask Weather App</h1>
+
+    <form method="POST">
+        <input type="text" name="city" placeholder="Enter city name" required>
+        <button type="submit">Get Weather</button>
+    </form>
+
+    {% if weather %}
+        <h2>Weather in {{ weather.city }}</h2>
+        <img src="{{ weather.icon }}" alt="Weather Icon">
+        <p><strong>Temperature:</strong> {{ weather.temperature }}°C</p>
+        <p><strong>Description:</strong> {{ weather.description }}</p>
+    {% elif error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
